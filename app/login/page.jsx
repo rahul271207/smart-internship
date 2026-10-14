@@ -50,11 +50,11 @@ export default function Login() {
           </p>
         </form>
         <div className="mt-4 rounded-xl border border-slate-200 bg-white p-4 text-xs text-slate-500">
-          <p className="font-semibold text-slate-700 mb-2">Demo accounts</p>
-          <p>Admin: admin@example.com / Admin@12345</p>
-          <p>Student: aarav@example.com / Student@12345</p>
-          <p>Student: diya@example.com / Student@12345</p>
-          <p>Org: org-nic@example.com / Org@12345</p>
+          <p className="font-semibold text-slate-700 mb-2">Demo accounts (use @gmail.com or @example.com)</p>
+          <p>Admin: <strong>admin@gmail.com</strong> / Admin@12345</p>
+          <p>Student: <strong>aarav@gmail.com</strong> / Student@12345</p>
+          <p>Student: <strong>diya@gmail.com</strong> / Student@12345</p>
+          <p>Org: <strong>org-nic@gmail.com</strong> / Org@12345</p>
         </div>
       </div>
     </PublicLayout>

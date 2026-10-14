@@ -32,12 +32,15 @@ The application automatically seeds 22 students, 9 internships, 3 organizations,
 
 ## 2. Demo Login Credentials
 
+*(You can use either `@gmail.com` or `@example.com`)*
+
 | Role | Email | Password | Access URL |
 |---|---|---|---|
-| **Administrator** | `admin@example.com` | `Admin@12345` | `http://localhost:3000/admin` |
-| **Student (Aarav)** | `aarav@example.com` | `Student@12345` | `http://localhost:3000/student` |
-| **Student (Diya)** | `diya@example.com` | `Student@12345` | `http://localhost:3000/student` |
-| **Organization (NIC)** | `org-nic@example.com` | `Org@12345` | `http://localhost:3000/org` |
+| **Administrator** | `admin@gmail.com` *(or `admin@example.com`)* | `Admin@12345` | `http://localhost:3000/admin` |
+| **Student (Aarav)** | `aarav@gmail.com` *(or `aarav@example.com`)* | `Student@12345` | `http://localhost:3000/student` |
+| **Student (Diya)** | `diya@gmail.com` *(or `diya@example.com`)* | `Student@12345` | `http://localhost:3000/student` |
+| **Organization (NIC)** | `org-nic@gmail.com` *(or `org-nic@example.com`)* | `Org@12345` | `http://localhost:3000/org` |
+
 
 ---
 

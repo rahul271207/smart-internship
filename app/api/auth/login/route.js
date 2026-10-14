@@ -12,7 +12,22 @@ export async function POST(request) {
     const password = body.password || "";
 
     const db = await getDb();
-    const user = await db.users.findOne({ email });
+    let user = await db.users.findOne({ email });
+
+    // Fallback: allow logging in with either @gmail.com or @example.com
+    if (!user && email.includes("@")) {
+      if (email.endsWith("@gmail.com")) {
+        const alt = email.replace(/@gmail\.com$/, "@example.com");
+        user = await db.users.findOne({ email: alt });
+      } else if (email.endsWith("@example.com")) {
+        const alt = email.replace(/@example\.com$/, "@gmail.com");
+        user = await db.users.findOne({ email: alt });
+      }
+    } else if (!user && !email.includes("@")) {
+      // Allow entering just 'admin' or 'aarav' or 'diya'
+      user = (await db.users.findOne({ email: `${email}@example.com` })) ||
+             (await db.users.findOne({ email: `${email}@gmail.com` }));
+    }
 
     if (!user || !verifyPassword(password, user.password_hash)) {
       return NextResponse.json({ detail: "Incorrect email or password." }, { status: 401 });
