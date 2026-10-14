@@ -94,7 +94,7 @@ export default function DashboardLayout({ role, children }) {
             <Menu className="h-5 w-5" />
           </button>
           <p className="text-sm text-slate-500">
-            Signed in as <span className="font-semibold text-slate-800">{user?.name}</span> ({user?.role})
+            Signed in as <span className="font-semibold text-slate-800">{user?.name || user?.user?.name || 'User'}</span> ({user?.role || user?.user?.role || role})
           </p>
           <button
             type="button"

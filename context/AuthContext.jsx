@@ -35,13 +35,15 @@ export function AuthProvider({ children }) {
 
   async function refresh() {
     const token = getToken();
-    if (!token) { setUser(null); setLoading(false); return; }
+    if (!token) { setUser(null); setLoading(false); return null; }
     try {
       const { data } = await apiFetch('/api/auth/me');
       setUser(data);
+      return data;
     } catch {
       setToken(null);
       setUser(null);
+      return null;
     } finally {
       setLoading(false);
     }
@@ -55,8 +57,8 @@ export function AuthProvider({ children }) {
       body: JSON.stringify({ email, password }),
     });
     setToken(data.access_token);
-    await refresh();
-    return data;
+    const me = await refresh();
+    return { ...data, ...(me || {}) };
   }
 
   async function register(payload) {

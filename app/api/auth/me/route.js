@@ -25,8 +25,10 @@ export async function GET(request) {
     }
   }
 
+  const cleaned = cleanUser(user);
   return NextResponse.json({
-    user: cleanUser(user),
+    ...cleaned,
     ...extra,
+    user: cleaned,
   });
 }

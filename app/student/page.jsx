@@ -17,8 +17,9 @@ export default function StudentDashboard() {
 
   useEffect(() => {
     if (!user) return;
-    if (user.role !== 'student') {
-      router.replace(user.role === 'admin' ? '/admin' : '/org');
+    const role = user.role || user.user?.role;
+    if (role && role !== 'student') {
+      router.replace(role === 'admin' ? '/admin' : '/org');
       return;
     }
     Promise.all([
